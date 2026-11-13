@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <title>WBSEDCL Bill Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brandmark">W</div>
+    <div><div class="eyebrow">PERSONAL BILL MONITOR</div><h1>WBSEDCL Bill Tracker</h1></div>
+    <span class="live-pill"><i></i> 4 consumers configured</span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">ELECTRICITY · WEST BENGAL</p><h2>Your bills, in one place.</h2>
+      <p class="muted">Fetch the latest bill PDFs and extract meter readings and payable amounts.</p></div>
+      <button id="fetchAll" class="primary">↻ Fetch all bills</button>
+    </section>
+
+    <section class="stats">
+      <article class="stat"><span>Consumers</span><strong id="consumerCount">4</strong><small>Configured</small></article>
+      <article class="stat"><span>Fetched</span><strong id="fetchedCount">0</strong><small>Successful PDFs</small></article>
+      <article class="stat"><span>Needs review</span><strong id="reviewCount">0</strong><small>Missing or uncertain fields</small></article>
+      <article class="stat"><span>Last run</span><strong id="lastRun">—</strong><small>Local time</small></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><h3>Consumer bills</h3><p class="muted">Readings and amounts are extracted from each downloaded PDF.</p></div>
+        <div class="actions"><button id="mergedPdf" class="secondary" disabled>↓ Merged PDF</button><button id="sharePdf" class="secondary" disabled>⇪ Share PDF</button><button id="exportCsv" class="secondary" disabled>↓ Export CSV</button></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Consumer</th><th>Customer name</th><th>Prev. reading</th><th>Latest reading</th><th>Units</th><th>Before rebate</th><th class="rebate">Rebate</th><th>After rebate</th><th>Status</th><th></th></tr></thead>
+          <tbody id="billRows"><tr><td colspan="10" class="empty">Connect the backend and fetch bills to get started.</td></tr></tbody>
+          <tfoot id="billTotals"></tfoot>
+        </table>
+      </div>
+      <div class="footnote">Amounts and readings are shown exactly as extracted. Review the PDF when a field is marked “Check PDF”.</div>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><div><h3>Bill split</h3><p class="muted">Based on the after-rebate amounts. Shared connections are split equally.</p></div></div>
+      <div id="splitView" class="split"><div class="empty">Fetch bills to see the split.</div></div>
+    </section>
+    <section class="panel log-panel"><div class="panel-head"><div><h3>Activity</h3><p class="muted">Live progress for the current fetch.</p></div><span id="runStatus" class="status">Idle</span></div><div id="log" class="log"><div class="log-line muted">Waiting for a fetch operation.</div></div></section>
+    <footer>WBSEDCL Bill Tracker · GitHub Pages frontend + private automation backend</footer>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>

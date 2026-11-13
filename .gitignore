@@ -1,0 +1,8 @@
+node_modules/
+.env
+.playwright/
+downloads/
+*.pdf
+.DS_Store
+.vercel
+/.idea

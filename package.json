@@ -1,0 +1,14 @@
+{
+  "name": "wbsedcl-bill-tracker",
+  "private": true,
+  "type": "module",
+  "description": "Vercel deployment: static frontend/ + serverless functions in api/. For local use see backend/ and run-local.cmd.",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "pdf-parse": "1.1.1",
+    "playwright-core": "1.63.0"
+  }
+}
